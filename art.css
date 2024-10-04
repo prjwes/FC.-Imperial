@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    padding: auto;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+}
+
+.nav-items {
+    display: flex; /* Use flexbox to align items */
+    margin: auto;
+    font-size: 11px;
+    }
+
+.nav-items a:hover {
+    color: #ff9800; /* Hover color */
+}
+
+.nav-brand {
+    font-size: 11px;
+    color: white;
+}
+
+.nav-brand a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-items a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 11px;
+    
+}
+
+.art-gallery {
+    padding: 40px;
+    text-align: center;
+}
+
+.art-gallery h1 {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+    transition: transform 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.description {
+    padding: 15px;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 0 0 15px 15px;
+}
+
+.description h2 {
+    font-size: 11px;
+    margin: 10px 0;
+}
+
+.description p {
+    color: #555;
+}
+
+.item1 img {
+    clip-path: polygon(0% 0%, 100% 10%, 100% 100%, 0% 100%);
+}
+
+.item2 img {
+    clip-path: polygon(0% 0%, 100% 10%, 100% 100%, 0% 100%);
+}
+
+.item3 img {
+    clip-path: polygon(0% 0%, 100% 10%, 100% 100%, 0% 100%);
+}
+
+.item4 img {
+    clip-path: polygon(0% 0%, 100% 10%, 100% 100%, 0% 100%);
+}
+
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer .info-section a {
+    color: white;
+    font-size: 11px;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+footer .info-section img {
+    height: 20px;
+}
+
+footer .info-section a:hover {
+    color: #ff9800;
+}
+
+footer p {
+    margin: 0;
+    color: #bbb;
+    font-size: 10px;
+}

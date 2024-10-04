@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Players</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        header {
+            display: flex;
+            width: 650px;
+            justify-content: flex-end;
+            background-color: #333;
+            padding: 20px;
+            color: white;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        header a:hover {
+            color: #ccc;
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .search-bar input {
+            width: 400px;
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .search-bar input::placeholder {
+            color: #aaa;
+        }
+
+        .slideshow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .slideshow-container img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute;
+            animation: slide 10s forwards;
+        }
+
+        @keyframes slide {
+            0% { opacity: 1; }
+            25% { opacity: 1; }
+            50% { opacity: 1; }
+            75% { opacity: 1; }
+            100% { opacity: 1; }
+        }
+
+        .container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 50px;
+        }
+
+        .player {
+            background: rgba(255, 255, 255, 0.5);
+            border: 2px solid green;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .player img {
+            float: left;
+            margin-right: 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        .player button {
+            display: block;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 150px;
+        }
+
+        .player button:hover {
+            background-color: darkgreen;
+        }
+
+        .more-info, .my-gallery {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .container1 {
+            width: 5cm;
+            display: flex;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: rgb(24, 61, 59);
+            border: none;
+            cursor: pointer;
+            width: 150px;
+
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="gallery.html">Gallery</a>
+    </header>
+
+
+    <!-- SEARCH BAR -->
+<div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search..." onkeyup="searchPlayers()">
+</div>
+
+<!-- JavaScript for Search Functionality -->
+<script>
+    function searchPlayers() {
+        // Get the search query
+        let input = document.getElementById('search-input').value.toLowerCase();
+        
+        // Get all the player containers
+        let players = document.getElementsByClassName('player');
+        
+        // Loop through each player container
+        for (let i = 0; i < players.length; i++) {
+            // Get the text content of the player (name and details)
+            let playerText = players[i].textContent.toLowerCase();
+            
+            // If the player text contains the search input, show the container; otherwise, hide it
+            if (playerText.includes(input)) {
+                players[i].style.display = "";
+            } else {
+                players[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+
+    <!-- BACKGROUND SLIDESHOW -->
+    <div class="slideshow-container">
+        <img src="FTI.jpg" alt="Background 1">
+        <img src="FT JR.jpg" alt="Background 2">
+        <img src="FTT3.jpg" alt="Background 3">
+        <img src="FTI.jpg" alt="Background 4">
+    </div>
+
+    <!-- BODY WITH PLAYER CONTAINERS -->
+    <div class="container">
+        <!-- Player 1 -->
+        <div class="player">
+            <img src="wess2.jpg" alt="Wesly Murati">
+            <h3>Wesly Murati</h3>
+            <p>11</p>
+            <button onclick="toggleDetails(1)">See More</button>
+            <div class="more-info" id="info1">
+                <p>Jesy no: 11:
+                    Role: Flanger/Striker
+                <a href="https://wa.me/+254758955122">WhatsApp</a><br><a href="https://m.me/0758955122">Facebook</a>
+                </p>
+            </div>
+            <button onclick="toggleGallery(1)">My Gallery</button>
+            <div class="my-gallery" id="gallery1">
+                <img src="FB_IMG_17239718891494817.jpg" alt="Gallery Image 1">
+                <video src=".mp4" controls></video>
+            </div>
+        </div>
+
+        <!-- Player 2 -->
+        <div class="player">
+            <img src="image Brian.jpg" alt="Player 2">
+            <h3>Brian Akhalumi</h3>
+            <p>10</p>
+            <button onclick="toggleDetails(2)">See More</button>
+            <div class="more-info" id="info2">
+                <p> Role: Target Striker
+            <a href="https://wa.me/+254113238558">WhatsApp</a><br><a href="https://m.me/0758955122">Facebook</a></p>
+            </div>
+            <button onclick="toggleGallery(2)">My Gallery</button>
+            <div class="my-gallery" id="gallery2">
+                <img src="T Brio & Ian.jpg" alt="Gallery Image 2">
+                <video src="video2.mp4" controls></video>
+            </div>
+        </div>
+
+        <!-- player 3 -->
+        <div class="player">
+            <img src="image Nash.jpg" alt="player 3">
+            <h3>Nahshon Amole</h3>
+            <p>6</p>
+            <button onclick="toggleDetails(3)">See More</button>
+            <div class="more-info" id="info3">
+                <p>
+                    ROLE: Team Captain
+                    Defencive Midfielder
+                          <a href="https://wa.me/0787294515">WhatsApp</a><br><a href="https://m.me/0787294515">Facebook</a></p>
+                </p>
+            </div>
+            <button onclick="toggleGallery(3)">My Gallery</button>
+            <div class="my-gallery" id="gallery3">
+                <img src="image Nash2.jpg" alt="Gallery Image 3">
+                <video src="video3.mp4" controls></video>
+            </div>
+        </div>
+
+        <!-- Player 4 -->
+        <div class="player">
+            <img src="image Bruce.jpg" alt="Player 4">
+            <h3>Brucce Keverenge</h3>
+            <p>99</p>
+            <button onclick="toggleDetails(4)">See More</button>
+            <div class="more-info" id="info4">
+                <p>
+                    Role: Defender
+                          cpt. <a href="FC. Dragon">FC. Dragon</a>
+                </p>
+            </div>
+            <button onclick="toggleGallery(4)">My Gallery</button>
+            <div class="my-gallery" id="gallery4">
+                <img src="T bruce & Douglas.jpg" alt="Gallery Image 4">
+                <img src="T Brio & Ian.jpg" alt="Gallery Image 4">
+                <video src="video4.mp4" controls></video>
+            </div>
+        </div>
+
+        <!-- Player 5 -->
+        <div class="player">
+            <img src="image Iddy.jpg" alt="Player 5">
+            <h3>Iddy</h3>
+            <p>8</p>
+            <button onclick="toggleDetails(5)">See More</button>
+            <div class="more-info" id="info5">
+                <p>
+                    Role: Midfielder
+                        :Ass. Captain
+                        : Cpt. Taining
+                </p>
+            </div>
+            <button onclick="toggleGallery(5)">My Gallery</button>
+            <div class="my-gallery" id="gallery5">
+                <img src="T Iddy.jpg" alt="Gallery Image 5">
+                <video src="video5.mp4" controls></video>
+            </div>
+        </div>
+
+        <!-- Player 6 -->
+        <div class="player">
+            <img src="image Morgan2.jpg" alt="Player 6">
+            <h3>Morgan Akhalumi</h3>
+            <p>12</p>
+            <button onclick="toggleDetails(6)">See More</button>
+            <div class="more-info" id="info6">
+                <p>
+                    ROLE: Att. Midfielder
+                        : Flanger
+                </p>
+            </div>
+            <button onclick="toggleGallery(6)">My Gallery</button>
+            <div class="my-gallery" id="gallery6">
+                <img src="image Morgan2.jpg" alt="Gallery Image 6">
+                <video src="video6.mp4" controls></video>
+            </div>
+        </div>
+        <!-- Player 7 -->
+        <div class="player">
+            <img src="image Hamphrey.jpg" alt="Player 7">
+            <h3>Humphrey </h3>
+            <p>7</p>
+            <button onclick="toggleDetails(1)">See More</button>
+            <div class="more-info" id="info1">
+                <p>
+                    Role: C.MIdfielder
+                        : Training Coach @
+                        <a href="FC. Imperial JR">FC. Imperial JR.</a>
+                </p>
+            </div>
+            <button onclick="toggleGallery(1)">My Gallery</button>
+            <div class="my-gallery" id="gallery1">
+                <img src=".jpg" alt="Gallery Image 1">
+                <video src="video1.mp4" controls></video>
+            </div>
+        </div>
+
+        <!-- Player 8 -->
+        <div class="player">
+            <img src="image Kassim.jpg" alt="Player 8">
+            <h3>Kassim </h3>
+            <p>17</p>
+            <button onclick="toggleDetails(2)">See More</button>
+            <div class="more-info" id="info2">
+                <p>
+                    ROLE: Midfielder
+                </p>
+            </div>
+            <button onclick="toggleGallery(2)">My Gallery</button>
+            <div class="my-gallery" id="gallery2">
+                <img src=".jpg" alt="Gallery Image 2">
+                <video src="video2.mp4" controls></video>
+            </div>
+        </div>
+
+        <!-- Player 9 -->
+        <div class="player">
+            <img src="image Douglas.jpg" alt="Player 9">
+            <h3>Douglas </h3>
+            <p>1</p>
+            <button onclick="toggleDetails(3)">See More</button>
+            <div class="more-info" id="info3">
+                <p>
+                    ROLE: Imperail Goalkeeper 🧤
+
+                </p>
+            </div>
+            <button onclick="toggleGallery(3)">My Gallery</button>
+            <div class="my-gallery" id="gallery3">
+                <img src="T bruce & Douglas.jpg" alt="Gallery Image 9">
+                <video src="video3.mp4" controls></video>
+            </div>
+        </div>
+
+        <!-- Player 10 -->
+        <div class="player">
+            <img src="image Barasa.jpg" alt="Player 10">
+            <h3>Barasa</h3>
+            <p>14</p>
+            <button onclick="toggleDetails(4)">See More</button>
+            <div class="more-info" id="info4">
+                <p>
+                    ROLE: Midfielder
+                        : Flanger
+                </p>
+            </div>
+            <button onclick="toggleGallery(4)">My Gallery</button>
+            <div class="my-gallery" id="gallery4">
+                <img src="T Barasa & Ian.jpg" alt="Gallery Image 4">
+                <video src="video4.mp4" controls></video>
+            </div>
+        </div>
+
+        <!-- Player 11 -->
+        <div class="player">
+            <img src="image Bush.jpg" alt="Player 11">
+            <h3>Bush</h3>
+            <p>4</p>
+            <button onclick="toggleDetails(5)">See More</button>
+            <div class="more-info" id="info5">
+                <p>
+                    ROLE: Defender
+                        : Store Keeper
+                </p>
+            </div>
+            <button onclick="toggleGallery(5)">My Gallery</button>
+            <div class="my-gallery" id="gallery5">
+                <img src=".jpg" alt="Gallery Image 5">
+                <video src="video5.mp4" controls></video>
+            </div>
+        </div>
+
+        <!-- Player 6 -->
+        <div class="player">
+            <img src="image Maxi.jpg" alt="Player 12">
+            <h3>Maxuel </h3>
+            <p>5</p>
+            <button onclick="toggleDetails(6)">See More</button>
+            <div class="more-info" id="info6">
+                <p>
+                    ROLE: Defender
+                </p>
+            </div>
+            <button onclick="toggleGallery(6)">My Gallery</button>
+            <div class="my-gallery" id="gallery6">
+                <img src=".jpg" alt="Gallery Image 6">
+                <video src="video6.mp4" controls></video>
+            </div>
+        </div>
+        
+    </div>
+    <div class="container1">
+        <img src="/images/user.png" alt="">
+        <button onclick="ToggleEvent">
+            <a href="contact.html">Request to join</a>
+        </button>
+        
+    </div>
+    
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            &copy; 2024 FC. Imperial</a>
+        </p>
+    </footer>
+
+    <script>
+        function toggleDetails(player) {
+            var info = document.getElementById('info' + player);
+            info.style.display = (info.style.display === 'none' || info.style.display === '') ? 'block' : 'none';
+        }
+
+        function toggleGallery(player) {
+            var gallery = document.getElementById('gallery' + player);
+            gallery.style.display = (gallery.style.display === 'none' || gallery.style.display === '') ? 'block' : 'none';
+        }
+        
+        
+    </script>
+
+</body>
+</html>

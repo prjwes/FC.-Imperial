@@ -1,0 +1,199 @@
+/* General body styles */
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+  background-color: #222020;
+  color: #333;
+}
+
+/* Header and navigation styles */
+header {
+  background-color: #333;
+  padding: 15px 10px;
+}
+
+.nav-brand {
+  font-size: 24px;
+  color: white;
+}
+
+.nav-brand a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-items a {
+  color: white; /* Set the tab link color to white */
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.nav-items a:hover {
+  color: #ff9800;
+}
+
+/* Slider styling */
+.slider {
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.slides {
+  display: flex;
+  animation: slide 15s infinite;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: rgba(32, 32, 32, 0.7);
+  color: white;
+}
+
+.cta {
+  background-color: red;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+}
+.news-section {
+  padding: 40px;
+  background-color: #222222;
+  margin: 20px auto;
+  max-width: 900px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.news-section h2 {
+  font-size: 36px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.image-gallery, .video-section {
+  margin-bottom: 40px;
+}
+
+.image-gallery h3, .video-section h3 {
+  font-size: 28px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.gallery {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide {
+  min-width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  animation: slideAnimation 20s infinite;
+}
+
+@keyframes slideAnimation {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(0); }
+  25% { transform: translateX(-100%); }
+  45% { transform: translateX(-100%); }
+  50% { transform: translateX(-200%); }
+  70% { transform: translateX(-200%); }
+  75% { transform: translateX(-300%); }
+  100% { transform: translateX(-300%); }
+}
+
+.video-section video {
+  width: 70%;
+  height: auto;
+}
+
+.download-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.download-link:hover {
+  text-decoration: underline;
+}
+
+
+
+/* Containers right after the slider */
+.containers {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px; /* Adjust padding around the containers */
+  margin-top: 0; /* Ensure there's no margin between slider and containers */
+}
+
+.container {
+  width: 23%;
+  background-size: cover ;
+  height: 250px;
+  position: relative;
+  display: flex;
+  margin-top: 0; /* Remove default margin at the top */
+}
+
+.container h2 {
+  position: absolute;
+  bottom: 5px;
+  left: 100px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 5px;
+}
+
+/* Footer styling */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  display: ruby-base;
+  text-align: center;
+}
+
+footer .info-section a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+footer .info-section img {
+  height: 20px;
+}
+
+footer .info-section a:hover {
+  color: #ff9800;
+}
+
+footer p {
+  margin: 0;
+  color: #bbb;
+}
+
+/* Animation for the slider */
+@keyframes slide {
+  0%, 20% {transform: translateX(0);}
+  33%, 53% {transform: translateX(-100%);}
+  66%, 86% {transform: translateX(-200%);}
+  100% {transform: translateX(-300%);}
+}

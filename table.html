@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Results</title>
+    <link rel="stylesheet" href="global.css">
+</head>
+<body>
+    <header>
+        <nav>
+          <span class="nav-brand">
+            <a href="index.html">IMPERIAL</a>
+          </span>
+          <div class="nav-items">
+            <a href="management.html">Management</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="pages.html">Pages</a>
+          </div>
+        </nav>
+    </header>
+    <h1>Football Results</h1>
+    <table id="resultsTable">
+        <thead>
+            <tr>
+                <th>Team</th>
+                <th>MP</th> <!-- Matches Played -->
+                <th>W</th> <!-- Wins -->
+                <th>D</th> <!-- Draws -->
+                <th>L</th> <!-- Losses -->
+                <th>P</th> <!-- Points -->
+                <th>Pos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>FC. Imperial</td>
+                <td>5</td>
+                <td>3</td>
+                <td>1</td>
+                <td>1</td>
+                <td>10</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>FC. Dragon</td>
+                <td>5</td>
+                <td>2</td>
+                <td>2</td>
+                <td>1</td>
+                <td>8</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>FC. Imperial Jr.</td>
+                <td>5</td>
+                <td>1</td>
+                <td>3</td>
+                <td>1</td>
+                <td>6</td>
+                <td>3</td>
+            </tr>
+            <!-- More teams can be added here -->
+        </tbody>
+    </table>
+
+    <script>
+        function sortTable() {
+            const table = document.getElementById("resultsTable").tBodies[0];
+            const rows = Array.from(table.rows);
+
+            rows.sort((a, b) => {
+                const pointsA = parseInt(a.cells[5].innerText);
+                const pointsB = parseInt(b.cells[5].innerText);
+
+                if (pointsA === pointsB) {
+                    // If points are equal, use another criteria like wins or goal difference
+                    const winsA = parseInt(a.cells[2].innerText);
+                    const winsB = parseInt(b.cells[2].innerText);
+                    return winsB - winsA;
+                }
+
+                return pointsB - pointsA; // Sort by points (descending)
+            });
+
+            rows.forEach((row, index) => {
+                table.appendChild(row);
+                row.cells[6].innerText = index + 1; // Update position
+            });
+        }
+
+        window.onload = sortTable;
+    </script>
+</body>
+</html>

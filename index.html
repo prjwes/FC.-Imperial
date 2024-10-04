@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home - Imperial</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <span class="nav-brand">
+        <a href="index.html">IMPERIAL</a>
+      </span>
+      <div class="nav-items">
+        <a href="management.html">Management</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="pages.html">Pages</a>
+      </div>
+    </nav>
+  </header>
+  
+  <section class="slider">
+    <div class="slides">
+      <div class="slide" id="slide1">
+        <h1>Welcome to Imperial</h1>
+        <a href="contact.html" class="cta">Contact Us</a>
+      </div>
+      <div class="slide" id="slide2">
+        <h1>Twende Kazi Sasa</h1>
+        <a href="contact.html" class="cta">Contact Us</a>
+      </div>
+      <div class="slide" id="slide3">
+        <h1>Join Us</h1>
+        <a href="contact.html" class="cta">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- News Section -->
+<section class="news-section">
+  <h2>This Week on Imperial</h2>
+  
+  <!-- Image Gallery -->
+  <div class="image-gallery">
+      <h3>This Week</h3>
+      <div class="gallery">
+          <img src="soon.jpg" alt="Image 1" class="slide">
+          <img src="T img.jpg" alt="Image 2" class="slide">
+  </div>
+
+  <!-- Video Section -->
+  <div class="video-section">
+      <h3></h3>
+      <video id="videoPlayer" controls autoplay>
+          <source src="imperial web.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+      <a href="imperial web.mp4" download class="download-link">Download</a>
+  </div>
+</section>
+
+
+  <section class="containers">
+    <div class="container" style="background-image: url('FTT3.jpg')">
+      <h2><a href="fixtures.html">Fixtures</a></h2>
+    </div>
+    <div class="container" style="background-image: url('fsvsv.jpg')">
+      <h2><a href="table.html">Table</a></h2>
+    </div>
+    <div class="container" style="background-image: url('FTT1.jpg')">
+      <h2><a href="art.html">The Art</a></h2>
+    </div>
+    <div class="container" style="background-image: url('FT JR.jpg')">
+      <h2><a href="players.html">Players</a></h2>
+    </div>
+  </section>
+
+  <footer>
+    <div class="info-section">
+      <a href="contact.html">Address</a>
+      <a href="mailto:prjwes@gmail.com">Email</a>
+      <a href="https://facebook.com/groups/746874653747078/" target="_blank">
+        <img src="facebook icon2.png" alt="Facebook">
+    </a>
+    </div>
+    <p>Copyright 2024@ FC. Imperial</p>
+  </footer>
+
+  <script>
+    // No extra JavaScript is needed for this as the slider is animated using CSS.
+    
+    const videoPlayer = document.getElementById('videoPlayer');
+    const videoSources = ['video1.mp4', 'video2.mp4'];
+    let currentVideoIndex = 0;
+
+    videoPlayer.addEventListener('ended', () => {
+        currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+        videoPlayer.src = videoSources[currentVideoIndex];
+        videoPlayer.play();
+    });
+  </script>
+</body>
+</html>
